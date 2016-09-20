@@ -20,12 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-Include taggle.js javascript in your `app/assets/javascripts/application.js`:
+Include taggle.js javascript in your `app/assets/javascripts/application.js` or `app/assets/javascripts/vendor.js`:
 ```
 //= require taggle-full
 ```
 
-This will include `taggle-ie8.js`, `taggle-ie9.js` and `taggle.js`. You can also require each one of these three files individually if you want.
+This will include `taggle-ie8.js`, `taggle-ie9.js` and `taggle.js`. You can also require each one of these three files individually if you prefer.
 
 ## License
 

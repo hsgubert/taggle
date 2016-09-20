@@ -1,5 +1,5 @@
 # Defining the engine automatically includes the assets on the apps
-module ImageZoomer
+module Taggle
   class Engine < Rails::Engine
   end
 end
