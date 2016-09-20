@@ -5,7 +5,7 @@ describe Taggle do
     expect(Taggle::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'has a rails engine defined' do
+    expect(Taggle::Engine.superclass).to be Rails::Engine
   end
 end
