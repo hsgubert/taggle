@@ -71,10 +71,11 @@ div.taggle {
         text-decoration: none;
         padding-left: 2px;
         padding-top: 3px;
+        padding-bottom: 4px;
+        padding-right: 0px;
         line-height: 0.5;
         color: #ccc;
         color: rgba(0, 0, 0, 0.2);
-        padding-bottom: 4px;
         display: none;
         border: 0;
         background: none;
@@ -111,6 +112,7 @@ div.taggle {
   input.taggle_input {
     border: none;
     outline: none;
+    box-shadow: none;
     padding: 8px;
     padding-left: 0;
     float: left;

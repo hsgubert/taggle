@@ -6,7 +6,7 @@ require 'taggle/version'
 Gem::Specification.new do |spec|
   spec.name          = "taggle"
   spec.version       = Taggle::VERSION
-  spec.date          = '2016-09-20'
+  spec.date          = '2016-09-21'
   spec.authors       = ["Henrique Gubert"]
   spec.email         = ["guberthenrique@hotmail.com"]
 
