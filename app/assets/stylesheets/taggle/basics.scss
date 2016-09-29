@@ -39,6 +39,8 @@ div.taggle {
   ul.taggle_list {
     float: left;
     width: 100%;
+    margin: 0;
+    padding: 0;
 
     li.taggle {
       margin-right: 8px;
@@ -54,7 +56,7 @@ div.taggle {
 
       &:hover {
         padding: 5px;
-        padding-right: 15px;
+        padding-right: 20px;
         background: #ccc;
         transition: all .3s;
 
@@ -122,8 +124,7 @@ div.taggle {
     max-width: 100%;
 
     &:focus, &.active {
-      background: #fff;
-      transition: all .25s;
+      background: none;
     }
   }
 }
