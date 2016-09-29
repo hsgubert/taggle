@@ -33,11 +33,11 @@ I put together several styles based on the official examples of Taggle.js. These
 
 To use this unofficial set of styles, include in your `app/assets/stylesheets/application.js` or `app/assets/stylesheets/vendor.js`:
 ```
-//= require taggle
+*= require taggle
 ```
 
 And add the class `taggle` to the div you'll use to wrap the tags. Example:
-```
+```html
 <div id="example" class='taggle'></div>
 
 <%= javascript_tag do %>
