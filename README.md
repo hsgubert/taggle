@@ -1,5 +1,7 @@
 # Taggle
 [![Gem Version](https://badge.fury.io/rb/taggle.svg)](https://badge.fury.io/rb/taggle)
+[![Build Status](https://travis-ci.org/hsgubert/taggle.svg?branch=master)](https://travis-ci.org/hsgubert/taggle.svg?branch=master)
+[![Dependency Status](https://gemnasium.com/badges/github.com/hsgubert/taggle.svg)](https://gemnasium.com/github.com/hsgubert/taggle)
 
 This gem is a wrapper of [Taggle.js project](https://sean.is/poppin/tags), that allows you to include Taggle.js in your Rails app, using asset pipeline.
 
