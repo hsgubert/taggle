@@ -1,6 +1,6 @@
 /* !
  * @author Sean Coker <sean@seancoker.com>
- * @version 1.11.1
+ * @version 1.12.0
  * @url http://sean.is/poppin/tags
  * @license MIT
  * @description Taggle is a dependency-less tagging library
@@ -102,8 +102,10 @@
         /**
          * The default delimeter character to split tags on
          * @type {String}
+         * @todo Change this to just "delimiter: ','"
          */
         delimeter: ',',
+        delimiter: '',
 
         /**
          * Add an ID to each of the tags.
@@ -256,6 +258,13 @@
      * @param {Object} options
      */
     var Taggle = function(el, options) {
+        // @todo uncomment this in next major version
+        // for (var key in (options || {})) {
+        //     if (!DEFAULTS.hasOwnProperty(key)) {
+        //         throw new Error('"' + key + '" is not a valid option.');
+        //     }
+        // }
+
         this.settings = _extend({}, DEFAULTS, options);
         this.measurements = {
             container: {
@@ -275,6 +284,7 @@
         this.sizer = document.createElement('div');
         this.pasting = false;
         this.placeholder = null;
+        this.data = null;
 
         if (this.settings.placeholder) {
             this.placeholder = document.createElement('span');
@@ -335,7 +345,7 @@
             _setText(this.placeholder, this.settings.placeholder);
 
             if (!this.settings.tags.length) {
-                this.placeholder.style.opacity = 1;
+                this._showPlaceholder();
             }
         }
 
@@ -471,7 +481,9 @@
             values = _trim(this.input.value);
         }
 
-        values.split(this.settings.delimeter).map(function(val) {
+        var delimiter = this.settings.delimiter || this.settings.delimeter;
+
+        values.split(delimiter).map(function(val) {
             return self._formatTag(val);
         }).forEach(function(val) {
             if (!self._canAdd(e, val)) {
@@ -619,8 +631,8 @@
             this._setInputWidth();
         }
 
-        if (!this.tag.values.length && this.placeholder && !this.input.value) {
-            this.placeholder.style.opacity = 1;
+        if (!this.tag.values.length && !this.input.value) {
+            this._showPlaceholder();
         }
     };
 
@@ -747,6 +759,12 @@
         this.tag.elements.push(li);
 
         return li;
+    };
+
+    Taggle.prototype._showPlaceholder = function() {
+        if (this.placeholder) {
+            this.placeholder.style.opacity = 1;
+        }
     };
 
     /**
@@ -877,6 +895,8 @@
             this._remove(this.tag.elements[i]);
         }
 
+        this._showPlaceholder();
+
         return this;
     };
 
@@ -884,6 +904,38 @@
         this.settings = _extend({}, this.settings, options || {});
 
         return this;
+    };
+
+    Taggle.prototype.enable = function() {
+        var buttons = [].slice.call(this.container.querySelectorAll('button'));
+        var inputs = [].slice.call(this.container.querySelectorAll('input'));
+
+        buttons.concat(inputs).forEach(function(el) {
+            el.removeAttribute('disabled');
+        });
+
+        return this;
+    };
+
+    Taggle.prototype.disable = function() {
+        var buttons = [].slice.call(this.container.querySelectorAll('button'));
+        var inputs = [].slice.call(this.container.querySelectorAll('input'));
+
+        buttons.concat(inputs).forEach(function(el) {
+            el.setAttribute('disabled', '');
+        });
+
+        return this;
+    };
+
+    Taggle.prototype.setData = function(data) {
+        this.data = data;
+
+        return this;
+    };
+
+    Taggle.prototype.getData = function() {
+        return this.data;
     };
 
     return Taggle;
