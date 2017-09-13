@@ -1,7 +1,7 @@
 # Taggle
 [![Gem Version](https://badge.fury.io/rb/taggle.svg)](https://badge.fury.io/rb/taggle)
 
-This gem is a wrapper of the [Taggle.js project](https://sean.is/poppin/tags), that allows you to include Taggle.js in your Rails app, using the asset pipeline. 
+This gem is a wrapper of [Taggle.js project](https://sean.is/poppin/tags), that allows you to include Taggle.js in your Rails app, using asset pipeline.
 
 The gem currently includes **Taggle.js version 1.12.0**.
 
@@ -15,7 +15,7 @@ Add this line to your application's Gemfile:
 gem 'taggle'
 ```
 
-And then execute:
+And then run:
 
     $ bundle
 
@@ -51,7 +51,6 @@ And add the class `taggle` to the div you'll use to wrap the tags. Example:
   new Taggle('example');
 <%= end %>
 ```
-
 
 
 ## License
